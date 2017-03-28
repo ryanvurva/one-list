@@ -1,9 +1,7 @@
-@mixin font-smoothing($value: on) {
-  @if $value == on {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-  } @else {
-    -moz-osx-font-smoothing: auto;
-    -webkit-font-smoothing: subpixel-antialiased;
+@mixin fullScreen {
+  width: 100%;
+
+  body {
+    min-height: 100%;
   }
 }
