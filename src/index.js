@@ -6,15 +6,20 @@ const main = () => {
   const list = document.querySelector('ul.one-list')
   const button = document.querySelector('button')
   const form = document.querySelector('form')
+  // const myStorage = localStorage
 
   button.addEventListener('click', (event) => {
     event.preventDefault()
+    let num = document.querySelectorAll('.one-list li').length
+    console.log(num)
     const listItem = input.value
+    localStorage.setItem('Item' + num, listItem)
     const li = document.createElement('li')
     li.textContent = listItem
     list.appendChild(li)
     let didDblClick = false
     li.addEventListener('click', () => {
+      // add css class that fades
       setTimeout(() => {
         if (!didDblClick) {
           li.style.textDecoration = 'line-through'
@@ -22,6 +27,7 @@ const main = () => {
       }, 300)
     })
     li.addEventListener('dblclick', (event) => {
+      // finish fading it before removing
       didDblClick = true
       list.removeChild(li)
     })
